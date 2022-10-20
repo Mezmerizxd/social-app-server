@@ -20,7 +20,7 @@ class GetFriendsMessages {
         const reqData: GetFriendsMessagesProps = req.body;
         const user = await AuthorizedAccess.App(req.headers.authorization, res);
         if (user.authorized === true) {
-            let messages = [];
+            const messages = [];
             const directMessageId = reqData.userId + user.data?.userId;
 
             const fbFriendUserAccount = Firebase.database.ref(

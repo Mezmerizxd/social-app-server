@@ -42,8 +42,8 @@ class AcceptFriendRequest {
             }
 
             // Get sent and received requests from user
-            let userSentRequests = [];
-            let userReceivedRequests = [];
+            const userSentRequests = [];
+            const userReceivedRequests = [];
             if (user.data?.friendRequests?.sent) {
                 Object.keys(user.data?.friendRequests?.sent).forEach(
                     (request) => {
@@ -64,8 +64,8 @@ class AcceptFriendRequest {
             }
 
             // Get sent and received request from friend
-            let friendSentRequests = [];
-            let friendReceivedRequests = [];
+            const friendSentRequests = [];
+            const friendReceivedRequests = [];
             if (friendUserData?.friendRequests?.sent) {
                 Object.keys(friendUserData?.friendRequests?.sent).forEach(
                     (request) => {
@@ -106,7 +106,7 @@ class AcceptFriendRequest {
             }
 
             // Get friends from user
-            let userFriends = [];
+            const userFriends = [];
             let userAlreadyFriends = false;
             if (user.data?.friends) {
                 Object.keys(user.data?.friends).forEach((friend) => {
@@ -126,7 +126,7 @@ class AcceptFriendRequest {
             userFriends.push(friendUserData.userId);
 
             // Get friends from friend
-            let friendFriends = [];
+            const friendFriends = [];
             let friendAlreadyFriends = false;
             if (friendUserData?.friends) {
                 Object.keys(friendUserData?.friends).forEach((friend) => {
@@ -135,7 +135,7 @@ class AcceptFriendRequest {
                     friendFriends.push(friendUserData?.friends[friend]);
                 });
             }
-            if (userAlreadyFriends) {
+            if (friendAlreadyFriends) {
                 res.status(400).json({
                     success: false,
                     error: true,

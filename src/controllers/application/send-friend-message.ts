@@ -49,10 +49,10 @@ class SendFriendMessage {
                 }/messages/`
             );
             // Get existing messages
-            let messages: any = [];
+            const messages: any = [];
             if ((await newFbDirectMessage.get()).toJSON()) {
                 (await newFbDirectMessage.get()).forEach((child) => {
-                    let directMessage: any = child.toJSON();
+                    const directMessage: any = child.toJSON();
                     if (directMessage) {
                         messages.push(directMessage);
                     }

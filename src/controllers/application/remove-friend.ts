@@ -42,8 +42,8 @@ class RemoveFriend {
             }
 
             // Get sent and received requests from user
-            let userSentRequests = [];
-            let userReceivedRequests = [];
+            const userSentRequests = [];
+            const userReceivedRequests = [];
             if (user.data?.friendRequests?.sent) {
                 Object.keys(user.data?.friendRequests?.sent).forEach(
                     (request) => {
@@ -76,8 +76,8 @@ class RemoveFriend {
             }
 
             // Get sent and received request from friend
-            let friendSentRequests = [];
-            let friendReceivedRequests = [];
+            const friendSentRequests = [];
+            const friendReceivedRequests = [];
             if (friendUserData?.friendRequests?.sent) {
                 Object.keys(friendUserData?.friendRequests?.sent).forEach(
                     (request) => {

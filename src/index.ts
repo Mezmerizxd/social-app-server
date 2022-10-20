@@ -45,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
                 process.exit(0);
             } else if (ans === 'Y' || ans === 'y') {
                 Log.info('Starting Server');
-                setTimeout(() => {}, 500);
+                setTimeout(() => {return Promise}, 500);
                 start();
             }
             protect.close();

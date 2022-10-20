@@ -53,17 +53,17 @@ export class Config {
             staticWebRepoUrl = `https://github.com/${githubRepoOwner}/${githubRepoName}`;
         }
 
-        const fbType = process.env.FIREBASE_TYPE
-        const fbProjectId = process.env.FIREBASE_PROJECT_ID
-        const fbPrivateKeyId = process.env.FIREBASE_PRIVATE_KEY_ID
-        const fbPrivateKey = process.env.FIREBASE_PRIVATE_KEY
-        const fbClientEmail = process.env.FIREBASE_CLIENT_EMAIL
-        const fbClientId = process.env.FIREBASE_CLIENT_ID
-        const fbAuthUri = process.env.FIREBASE_AUTH_URI
-        const fbTokenUri = process.env.FIREBASE_TOKEN_URI
-        const fbAuthProvider = process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL
-        const fbClientCertUrl = process.env.FIREBASE_CLIENT_X509_CERT_URL
-        const fbDatabaseUrl = process.env.FIREBASE_DATABASE_URL
+        const fbType = process.env.FIREBASE_TYPE;
+        const fbProjectId = process.env.FIREBASE_PROJECT_ID;
+        const fbPrivateKeyId = process.env.FIREBASE_PRIVATE_KEY_ID;
+        const fbPrivateKey = process.env.FIREBASE_PRIVATE_KEY;
+        const fbClientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+        const fbClientId = process.env.FIREBASE_CLIENT_ID;
+        const fbAuthUri = process.env.FIREBASE_AUTH_URI;
+        const fbTokenUri = process.env.FIREBASE_TOKEN_URI;
+        const fbAuthProvider = process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL;
+        const fbClientCertUrl = process.env.FIREBASE_CLIENT_X509_CERT_URL;
+        const fbDatabaseUrl = process.env.FIREBASE_DATABASE_URL;
 
         return {
             anotherExpressBoilerplateVersion,
@@ -92,7 +92,7 @@ export class Config {
             fbClientId,
             fbAuthUri,
             fbTokenUri,
-            fbDatabaseUrl
+            fbDatabaseUrl,
         };
     }
 
@@ -108,15 +108,4 @@ export class Config {
         _express.locals.app = this.config();
         return _express;
     }
-}
-
-export enum MySqlTables {
-    users = 'users',
-    test = 'test',
-}
-
-export enum MongoDb {
-    users = 'userdata',
-    rooms = 'chatrooms',
-    directMessages = 'directMessages',
 }

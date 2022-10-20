@@ -5,7 +5,7 @@ import * as firebaseAdmin from 'firebase-admin';
 import Log from '../middlewares/Log';
 
 // Providers
-import {Config} from "../providers/Config";
+import { Config } from '../providers/Config';
 
 class Firebase {
     public firebase: firebaseAdmin.app.App;
@@ -23,7 +23,7 @@ class Firebase {
             auth_uri: Config.config().fbAuthUri,
             token_uri: Config.config().fbTokenUri,
             auth_provider_x509_cert_url: Config.config().fbAuthProvider,
-            client_x509_cert_url: Config.config().fbClientCertUrl
+            client_x509_cert_url: Config.config().fbClientCertUrl,
         };
     }
 
@@ -32,8 +32,7 @@ class Firebase {
         try {
             this.firebase = firebaseAdmin.initializeApp({
                 credential: firebaseAdmin.credential.cert(this.firebaseKey),
-                databaseURL:
-                Config.config().fbDatabaseUrl,
+                databaseURL: Config.config().fbDatabaseUrl,
             });
             this.database = firebaseAdmin.database(this.firebase);
         } catch (error) {
