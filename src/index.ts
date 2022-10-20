@@ -13,6 +13,8 @@ import Log from './middlewares/Log';
 import App from './providers/App';
 import { Config } from './providers/Config';
 
+const args = process.argv.slice(2);
+
 function start(): void {
     if (Config.config().useCluster === true) {
         if (cluster.isPrimary) {
@@ -38,19 +40,25 @@ if (process.env.NODE_ENV === 'production') {
         output: process.stdout,
     });
 
-    protect.question(
-        '\x1b[35mYOU ARE ABOUT TO RUN THIS SERVER IN **PRODUCTION** MODE.\nYOU ARE ONLY SUPOSSED TO RUN THIS ON A SERVER\nARE YOU SURE YOU WANT TO CONTINUE?\x1b[0m \x1b[36my/N\x1b[0m\n> ',
-        (ans) => {
-            if (ans === 'N' || ans === 'n' || ans === '') {
-                process.exit(0);
-            } else if (ans === 'Y' || ans === 'y') {
-                Log.info('Starting Server');
-                setTimeout(() => {return Promise}, 500);
-                start();
+    if (args[0] === "bypass") {
+        setTimeout(() => {return Promise}, 500);
+        start();
+    } else {
+        protect.question(
+            '\x1b[35mYOU ARE ABOUT TO RUN THIS SERVER IN **PRODUCTION** MODE.\nYOU ARE ONLY SUPOSSED TO RUN THIS ON A SERVER\nARE YOU SURE YOU WANT TO CONTINUE?\x1b[0m \x1b[36my/N\x1b[0m\n> ',
+            (ans) => {
+                
+                if (ans === 'N' || ans === 'n' || ans === '') {
+                    process.exit(0);
+                } else if (ans === 'Y' || ans === 'y') {
+                    Log.info('Starting Server');
+                    setTimeout(() => {return Promise}, 500);
+                    start();
+                }
+                protect.close();
             }
-            protect.close();
-        }
-    );
+        );
+    }
 } else {
     start();
 }
