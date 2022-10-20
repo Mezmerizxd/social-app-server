@@ -1,0 +1,8 @@
+build/
+dist/
+client/
+logs/
+node_modules/
+.env
+docker-data/
+backup/
