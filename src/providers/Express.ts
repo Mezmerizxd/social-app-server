@@ -62,7 +62,7 @@ class Express {
     public Initialize(): any {
         this.httpServer
             .listen(Config.config().port, () => {
-                Log.debug(
+                Log.info(
                     `[Server] Server is Online in ${
                         process.env.NODE_ENV === 'production'
                             ? 'PRODUCTION'
