@@ -1,15 +1,15 @@
 version: '3.8'
 
 services:
-    client:
+    server:
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: 'client'
+        container_name: 'server'
         volumes:
-            - .:/usr/src/client/
-            - '/usr/src/client/node_modules'
-        working_dir: /usr/src/client
+            - .:/usr/src/server/
+            - '/usr/src/server/node_modules'
+        working_dir: /usr/src/server
         command: sh -c "yarn && yarn build && yarn start bypass"
         ports:
             - 3001:3001
