@@ -1,7 +1,9 @@
 FROM node:16.17.0
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/server/
 
-RUN npm install -g yarn
+COPY ./package.json ./
+
+COPY . .
 
 EXPOSE 3001 3002

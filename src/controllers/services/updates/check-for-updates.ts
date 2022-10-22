@@ -14,7 +14,7 @@ class CheckForUpdates {
     public static async perform(req: Request, res: Response) {
         Log.debug('[App] CheckForUpdates is performing...');
 
-        const fbUpdates = Firebase.database.ref(`social_app/updates`)
+        const fbUpdates = Firebase.database.ref(`social_app/updates`);
         const updates: any = [];
         if ((await fbUpdates.get()).toJSON()) {
             (await fbUpdates.get()).forEach((child) => {
@@ -24,16 +24,16 @@ class CheckForUpdates {
                 }
             });
         }
-        fbUpdates.set(updates)
+        fbUpdates.set(updates);
 
         // Return the data
         res.status(200).json({
             success: true,
             error: false,
             errorMessage: null,
-            data: JSON.stringify(updates)
+            data: JSON.stringify(updates),
         });
-        
+
         Log.debug('[App] CheckForUpdates is done');
     }
 }
